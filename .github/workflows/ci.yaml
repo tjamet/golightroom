@@ -1,0 +1,33 @@
+name: CI
+
+# No branch filter: gitea.jamet.me tracks `main` while the GitHub mirrors use
+# `master`, and one file has to serve both.
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          # Not go-version-file: go.mod's `go 1.13` would pick a toolchain too
+          # old for the runner's GOPROXY (the `|` separator needs Go 1.15). The
+          # go directive is being bumped separately.
+          go-version: stable
+          cache: true
+
+      - name: Build
+        run: go build ./...
+
+      - name: Vet
+        run: go vet ./...
+
+      - name: Test
+        run: go test -race ./...
