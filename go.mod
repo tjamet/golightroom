@@ -1,6 +1,6 @@
 module github.com/tjamet/golightroom
 
-go 1.15
+go 1.16
 
 require (
 	github.com/mattn/go-sqlite3 v2.0.1+incompatible
