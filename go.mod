@@ -4,7 +4,7 @@ go 1.27.0
 
 require (
 	github.com/mattn/go-sqlite3 v1.14.52
-	github.com/stretchr/testify v1.8.4
+	github.com/stretchr/testify v1.9.0
 )
 
 require (
