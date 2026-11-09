@@ -3,7 +3,7 @@ module github.com/tjamet/golightroom
 go 1.27.0
 
 require (
-	github.com/mattn/go-sqlite3 v1.14.52
+	github.com/mattn/go-sqlite3 v1.14.53
 	github.com/stretchr/testify v1.12.1
 )
 
